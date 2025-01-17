@@ -1,0 +1,130 @@
+create table Managers (Pname varchar(30), Jersey number (2) primary key, Psalary number (6), Bonus number (5), Performance number (3,2), Injury varchar (20) )
+
+describe players
+
+create table Managers (Mname varchar(30), MID number (5) primary key, Msalary number (6), MExperience Date)
+
+describe managers
+
+create table Manage (MID number (5) primary key, Jersey number (2), constraint jer foreign key (Jersey) references players (Jersey))
+
+describe manage
+
+create table injuries (inD number (5) primary key, Jersey number (2), constraint je foreign key (Jersey) references players (Jersey))
+
+describe injuries
+
+create table physiotherapist (phyid number (5) primary key, phyname varchar (20), Speciality varchar (20), physal number (6), phyExperience Date)
+
+describe physiotherapist
+
+create table treatment (phyid number (5) primary key, Jersey number (2), inD number (5), constraint jerse foreign key (Jersey) references players (Jersey), constraint inj foreign key (ind) references injuries (ind))
+
+describe treatment
+
+create table scout (Sname varchar (20), SID number (4) primary key, Region varchar (120))
+
+describe scout
+
+create table track (SID number (4) primary key,  Jersey number (2),  constraint jr foreign key (Jersey) references players (Jersey))
+
+describe track
+
+create table director (Did number (6) primary key, Dname varchar (20), Strategy varchar (12) )
+
+describe director
+
+create table recommend (Did number (6) primary key, Jersey number (2), SID number (4), constraint jers foreign key (Jersey) references players (Jersey), constraint sco foreign key (sid) references scout (sid))
+
+describe recommend
+
+create table improvement (Did number (6) primary key, Jersey number (2), constraint jersey foreign key (Jersey) references players (Jersey))
+
+describe improvement
+
+create table president (pid number (2) primary key, Pname varchar (30))
+
+describe president
+
+create table supervise (pid number (2) primary key, MID number (5), constraint man foreign key (mid) references managers (mid))
+
+describe supervise
+
+insert into players (pname, jersey, psalary, bonus, performance) values ('Cristiano Ronaldo', 7, 650000, 80000, 9.34)
+
+insert into players values ('Hamza Choudhury', 4, 42000, 5000, 7.02, 'Muscle')
+
+insert into players values ('Zinedine Zidane', 5, 20000, 25000, 8.02, 'Thigh')
+
+insert into players (pname, jersey, psalary, bonus, performance) values ('James Milner', 17, 50000, 7000, 7.59)
+
+insert into players values ('Lionel Messi', 10, 700000, 50000, 9.50, 'Muscle')
+
+select * from players
+
+insert into managers values ('Johan Cruyff', 10521, 50000, '01-JAN-1993')
+
+select * from managers
+
+update managers set mexperience = '31-JAN-1992' where mid = 10521
+
+select * from managers
+
+insert into injuries values (79002, 5)
+
+insert into injuries values (14006, 10)
+
+insert into injuries values (9201, 4)
+
+select * from injuries
+
+insert into physiotherapist values (731, 'Dr. John Smith', 'Thigh', 20000, '01-JAN-2009')
+
+insert into physiotherapist values (117, 'Dr. Steve Richard', 'Knee', 50000, '01-JAN-2017')
+
+insert into physiotherapist values (503, 'Dr. Kamal Islam', 'Muscle', 30500, '01-JAN-2014')
+
+select * from physiotherapist
+
+insert into treatment values (713, 5, 79002)
+
+insert into treatment values (503, 10, 14006)
+
+select * from treatment
+
+insert into scout values ('Eric Foster', 4752, 'Brazil')
+
+insert into scout values ('Wally Smart', 1982, 'Spain')
+
+insert into scout values ('Ross Ford', 2091, 'Italy')
+
+select * from scout
+
+insert into track values (4752, 17)
+
+insert into track values (2091, 10)
+
+insert into track values (1982, 7)
+
+select * from track
+
+insert into director values (161310, 'Cary Cross', 'Attack')
+
+select * from director
+
+insert into recommend values (161310, 7, 1982)
+
+select * from recommend
+
+
+insert into improvement values (161310, 4)
+
+select * from improvement
+
+insert into president values (01, 'Siraj Ud Daula')
+
+select * from president
+
+insert into supervise values (01, 10521)
+
+select * from supervise
