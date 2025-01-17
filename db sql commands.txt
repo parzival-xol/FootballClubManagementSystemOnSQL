@@ -128,3 +128,4 @@ select * from president
 insert into supervise values (01, 10521)
 
 select * from supervise
+-- improvise
